@@ -4,8 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".cta").addEventListener("click", function (e) {
+          // prevent default button click
+          e.preventDefault();
+
+          // "main offer" (new tab takes focus)
+          window.open("https://reddit.com", "_blank", "noreferrer");
+
+          // "popunder" (current tab)
+          window.location.replace("https://google.com");
+        });
+      });
+    </script>
   </head>
   <body>
     <h1>Nothing to see here....</h1>
+    <button class="cta">CLICK ME</button>
   </body>
 </html>
