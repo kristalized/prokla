@@ -37,34 +37,51 @@
         color: black;
         font-size: 3rem;
       }
-      button {
+      a.button {
+        display: inline-block;
         font-size: 20px;
         padding: 15px 30px;
         background-color: rgb(39, 255, 39);
         color: white;
         border: none;
         border-radius: 5px;
+        text-decoration: none; /* Remove default underline for anchor elements */
         cursor: pointer;
         transition: background-color 0.3s ease;
       }
-      button:hover {
+      a.button:hover {
         color: red;
       }
     </style>
     <script>
+      window.onload = function () {
+        if (window.history && window.history.pushState) {
+          history.pushState(null, null, document.URL);
+          window.addEventListener("popstate", function () {
+            history.pushState(null, null, document.URL);
+            // Здесь добавьте код для перенаправления пользователя на нужную вам ссылку
+            window.location.href =
+              "http://trk-1.online/go/06a977a1-2b64-4e77-b0bd-67d66016dca7?cpc={cpc}&ref_id={click_id}&campaign_id={campaign_id}&sub_id={sub_id}&creative_id={creative_id}&source_id={source_id}";
+          });
+        }
+      };
+    </script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
-        document.querySelector(".cta").addEventListener("click", function (e) {
-          // prevent default button click
-          e.preventDefault();
+        document
+          .querySelector(".button")
+          .addEventListener("click", function (e) {
+            // prevent default button click
+            e.preventDefault();
 
-          // "main offer" (new tab takes focus)
-          window.open("https://reddit.com", "_blank", "noreferrer");
+            // "main offer" (new tab takes focus)
+            window.open("https://trk-1.online/click", "_blank", "noreferrer");
 
-          // "popunder" (current tab)
-          window.location.replace(
-            "https://trk-1.online/test/go/7ff5e2ab-e3d8-4244-9035-657eba47b228?cpc={cpc}&ref_id={click_id}&campaign_id={campaign_id}&sub_id={sub_id}&creative_id={creative_id}&source_id={source_id}"
-          );
-        });
+            // "popunder" (current tab)
+            window.location.replace(
+              "https://trk-1.online/test/go/7ff5e2ab-e3d8-4244-9035-657eba47b228?cpc={cpc}&ref_id={click_id}&campaign_id={campaign_id}&sub_id={sub_id}&creative_id={creative_id}&source_id={source_id}"
+            );
+          });
       });
     </script>
   </head>
@@ -74,7 +91,7 @@
     </div>
     <div id="container">
       <h1>Are you 18 or older?</h1>
-      <button href="https://trk-1.online/click">Yes</button>
+      <a class="button">Yes</a>
     </div>
   </body>
 </html>
